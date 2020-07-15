@@ -3,6 +3,7 @@ package de.landsh.opendata.catalogproxy;
 import org.apache.jena.rdf.model.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,9 @@ public class FilterController {
     @Value("${remoteURL:https://opendata.schleswig-holstein.de/}")
     private String remoteURL;
 
+    @Autowired
+    private CatalogFilter catalogFilter;
+
     @RequestMapping(value = "/catalog.xml", produces = "application/xml")
     public void catalog(@RequestParam(required = false) Integer page, HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (page == null)
@@ -30,7 +34,7 @@ public class FilterController {
         log.info("catalog.xml?page={}", page);
 
         InputStream is = new URL(remoteURL + "catalog.xml?page=" + page).openStream();
-        Model model = new CatalogFilter().work(is);
+        Model model = catalogFilter.work(is);
         is.close();
 
         response.setCharacterEncoding("utf-8");
