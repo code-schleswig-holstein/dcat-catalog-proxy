@@ -6,6 +6,7 @@ import org.apache.jena.riot.RDFParser;
 import org.apache.jena.riot.system.ErrorHandlerFactory;
 import org.apache.jena.vocabulary.RDF;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
@@ -14,7 +15,13 @@ import java.util.Collections;
 
 public class CatalogFilterTest {
 
-    private final CatalogFilter catalogFilter = new CatalogFilter("https://example.org/");
+    private final CatalogFilter catalogFilter = new CatalogFilter();
+
+    @BeforeEach
+    public void setUp() {
+        catalogFilter.setBaseURL("https://example.org/");
+    }
+
 
     private Model parseRdf(InputStream inputStream) {
         Model model = ModelFactory.createDefaultModel();

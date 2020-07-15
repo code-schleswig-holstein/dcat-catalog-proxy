@@ -8,6 +8,7 @@ import org.apache.jena.riot.system.ErrorHandlerFactory;
 import org.apache.jena.util.ResourceUtils;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDF;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.InputStream;
 import java.util.*;
@@ -25,9 +26,11 @@ public class CatalogFilter {
             ResourceFactory.createResource("http://publications.europa.eu/resource/authority/file-type/HTML")
     );
     private static final Property LOCN_GEOMETRY = ResourceFactory.createProperty("http://www.w3.org/ns/locn#geometry");
-    private final String baseURL;
 
-    public CatalogFilter(String baseURL) {
+    @Value("${baseURL:http://localhost:8080/}")
+    private String baseURL;
+
+    public void setBaseURL(String baseURL) {
         this.baseURL = baseURL;
     }
 
