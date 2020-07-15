@@ -5,17 +5,12 @@ import org.apache.jena.rdf.model.*;
 import org.apache.jena.riot.RDFLanguages;
 import org.apache.jena.riot.RDFParser;
 import org.apache.jena.riot.system.ErrorHandlerFactory;
+import org.apache.jena.util.ResourceUtils;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDF;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Filtert eine DCAT-AP.de konforme catalog.xml Datei nach festgelegten Kriterien.
@@ -29,16 +24,21 @@ public class CatalogFilter {
             ResourceFactory.createResource("http://publications.europa.eu/resource/authority/file-type/DOCX"),
             ResourceFactory.createResource("http://publications.europa.eu/resource/authority/file-type/HTML")
     );
-    Property LOCN_GEOMETRY = ResourceFactory.createProperty("http://www.w3.org/ns/locn#geometry");
+    private static final Property LOCN_GEOMETRY = ResourceFactory.createProperty("http://www.w3.org/ns/locn#geometry");
+    private final String baseURL;
 
-    Model work(InputStream in) throws IOException {
+    public CatalogFilter(String baseURL) {
+        this.baseURL = baseURL;
+    }
+
+    Model work(InputStream in) {
         Model model = ModelFactory.createDefaultModel();
 
         RDFParser.create()
                 .source(in)
                 .lang(RDFLanguages.RDFXML)
                 .errorHandler(ErrorHandlerFactory.errorHandlerStrict)
-                .base("http://example/base")
+                .base(baseURL)
                 .parse(model);
 
         Set<String> usedDistributionIds = new HashSet<>();
@@ -58,8 +58,39 @@ public class CatalogFilter {
         removeAnonymousResources(model);
         removeUnusedLocations(model);
         minimizeLocations(model);
+        rewriteHydraURLs(model);
 
         return model;
+    }
+
+    void rewriteHydraURLs(Model model) {
+        final ResIterator it = model.listSubjectsWithProperty(RDF.type, ResourceFactory.createResource("http://www.w3.org/ns/hydra/core#PagedCollection"));
+        if (it.hasNext()) {
+            final Resource pagedCollection = it.nextResource();
+            final String originalURL = StringUtils.substringBefore(pagedCollection.getURI(), "catalog.xml");
+
+            List<Statement> changeStatements = new ArrayList<>();
+
+            StmtIterator iterator = pagedCollection.listProperties();
+            while (iterator.hasNext()) {
+                Statement stmt = iterator.next();
+                if (stmt.getObject().isLiteral()) {
+                    final String value = stmt.getObject().asLiteral().getString();
+                    if (value.startsWith(originalURL)) {
+                        changeStatements.add(stmt);
+                    }
+                }
+            }
+
+            for (Statement stmt : changeStatements) {
+                final String value = stmt.getObject().asLiteral().getString();
+                final String newValue = value.replaceFirst(originalURL, baseURL);
+                stmt.changeObject(newValue);
+            }
+
+            ResourceUtils.renameResource(pagedCollection, pagedCollection.getURI().replaceFirst(originalURL, baseURL));
+
+        }
     }
 
     /**

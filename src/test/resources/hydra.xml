@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+    xmlns:hydra="http://www.w3.org/ns/hydra/core#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+    <hydra:PagedCollection rdf:about="http://opendata.schleswig-holstein.de/catalog.xml?page=50">
+        <hydra:previousPage>http://opendata.schleswig-holstein.de/catalog.xml?page=49</hydra:previousPage>
+        <hydra:nextPage>http://opendata.schleswig-holstein.de/catalog.xml?page=51</hydra:nextPage>
+        <hydra:totalItems rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8319</hydra:totalItems>
+        <hydra:itemsPerPage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</hydra:itemsPerPage>
+        <hydra:lastPage>http://opendata.schleswig-holstein.de/catalog.xml?page=84</hydra:lastPage>
+        <hydra:firstPage>http://opendata.schleswig-holstein.de/catalog.xml?page=1</hydra:firstPage>
+    </hydra:PagedCollection>
+</rdf:RDF>
