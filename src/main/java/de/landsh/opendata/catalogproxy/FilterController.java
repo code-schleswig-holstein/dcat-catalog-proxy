@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,8 +25,8 @@ public class FilterController {
     @Autowired
     private CatalogFilter catalogFilter;
 
-    @RequestMapping(value = "/catalog.xml", produces = "application/xml")
-    public void catalog(@RequestParam(required = false) Integer page, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    @RequestMapping(value = "/catalog.xml", produces = "application/rdf+xml")
+    public void catalog(@RequestParam(required = false) Integer page, HttpServletResponse response) throws IOException {
         if (page == null)
             page = 1;
 
