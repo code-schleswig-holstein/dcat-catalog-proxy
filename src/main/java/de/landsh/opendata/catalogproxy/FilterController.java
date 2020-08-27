@@ -37,7 +37,7 @@ public class FilterController {
         is.close();
 
         response.setCharacterEncoding("utf-8");
-        response.setContentType("application/xml");
+        response.setContentType("application/rdf+xml");
 
         Writer writer = response.getWriter();
         model.write(writer);
