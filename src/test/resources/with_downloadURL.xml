@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcat="http://www.w3.org/ns/dcat#"
+  xmlns:dct="http://purl.org/dc/terms/"
+  xmlns:schema="http://schema.org/"
+  xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+  xmlns:dcatde="http://dcat-ap.de/def/dcatde/1.0.1/"
+>
+  <dcat:Catalog rdf:about="http://opendata.schleswig-holstein.de">
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="http://opendata.schleswig-holstein.de/dataset/StaNord_CMS:50330">
+        <dcat:keyword>Ernteberichterstattung über Feldfrüchte und Grünland in Schleswig-Holstein</dcat:keyword>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-06-01T13:46:55.291496</dct:issued>
+        <dct:publisher rdf:resource="http://opendata.schleswig-holstein.de/organization/statistikamt-nord"/>
+        <dct:license rdf:resource="http://dcat-ap.de/def/licenses/dl-by-de/2.0"/>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-06-01T13:46:55.338566</dct:modified>
+        <dct:description>Ernteberichterstattung über Feldfrüchte und Grünland in Schleswig-Holstein - Endgültige Erträge und vorläufige Erntemengen von Getreide und Ölfrüchten, vorläufige Kartoffelernte 2004</dct:description>
+        <dct:title>Ernteberichterstattung über Feldfrüchte und Grünland in Schleswig-Holstein - Endgültige Erträge und vorläufige Erntemengen von Getreide und Ölfrüchten, vorläufige Kartoffelernte 2004</dct:title>
+        <dct:creator>
+          <foaf:Organization rdf:nodeID="Nc233acd517104832885bdfe3c81f3a01">
+            <foaf:name>Statistisches Amt für Hamburg und Schleswig-Holstein</foaf:name>
+            <foaf:mbox>info@statistik-nord.de</foaf:mbox>
+          </foaf:Organization>
+        </dct:creator>
+        <dct:spatial rdf:resource="http://dcat-ap.de/def/politicalGeocoding/stateKey/01"/>
+        <dcat:keyword>Ernte: Feldfrüchte und Grünland</dcat:keyword>
+        <dct:temporal>
+          <dct:PeriodOfTime rdf:nodeID="N5cc5efcb2099487a95f039c45a53e3d8">
+            <schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-09-01T00:00:00</schema:startDate>
+            <schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-09-30T00:00:00</schema:endDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+        <dcatde:licenseAttributionByText>Statistisches Amt für Hamburg und Schleswig-Holstein - Anstalt des öffentlichen Rechts - (Statistikamt Nord)</dcatde:licenseAttributionByText>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/AGRI"/>
+        <dcat:contactPoint>
+          <vcard:Organization rdf:nodeID="N5c233ba34b6f4a2dbee00193aafa12f0">
+            <vcard:fn>Statistisches Amt für Hamburg und Schleswig-Holstein</vcard:fn>
+            <vcard:hasEmail rdf:resource="mailto:info@statistik-nord.de"/>
+          </vcard:Organization>
+        </dcat:contactPoint>
+        <dct:identifier>StaNord_CMS:50330</dct:identifier>
+        <dcat:landingPage rdf:resource="http://www.statistik-nord.de"/>
+        <dcat:distribution>
+          <dcat:Distribution rdf:about="http://opendata.schleswig-holstein.de/dataset/StaNord_CMS:50330/resource/7b80638b-b65f-44fe-ab7a-95855db890b6">
+            <dct:title>Ernteberichterstattung über Feldfrüchte und Grünland in Schleswig-Holstein - Endgültige Erträge und vorläufige Erntemengen von Getreide und Ölfrüchten, vorläufige Kartoffelernte 2004</dct:title>
+            <dcatde:licenseAttributionByText>Statistisches Amt für Hamburg und Schleswig-Holstein - Anstalt des öffentlichen Rechts - (Statistikamt Nord)</dcatde:licenseAttributionByText>
+            <dcat:accessURL rdf:resource="https://www.statistik-nord.de/fileadmin/Dokumente/Statistische_Berichte/landwirtschaft/C_II_1_m_S/C_II_1_m0409_S.pdf"/>
+            <dcat:downloadURL rdf:resource="http://example.org/file.csv"/>
+            <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">112874985.0</dcat:byteSize>
+            <dct:license rdf:resource="http://dcat-ap.de/def/licenses/dl-by-de/2.0"/>
+            <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+          </dcat:Distribution>
+        </dcat:distribution>
+      </dcat:Dataset>
+    </dcat:dataset>
+  </dcat:Catalog>
+   </rdf:RDF>

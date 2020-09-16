@@ -6,6 +6,7 @@ import org.apache.jena.riot.RDFLanguages;
 import org.apache.jena.riot.RDFParser;
 import org.apache.jena.riot.system.ErrorHandlerFactory;
 import org.apache.jena.util.ResourceUtils;
+import org.apache.jena.vocabulary.DCAT;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDF;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,7 +36,7 @@ public class CatalogFilter {
     }
 
     Model work(InputStream in) {
-        Model model = ModelFactory.createDefaultModel();
+        final Model model = ModelFactory.createDefaultModel();
 
         RDFParser.create()
                 .source(in)
@@ -44,16 +45,16 @@ public class CatalogFilter {
                 .base(baseURL)
                 .parse(model);
 
-        Set<String> usedDistributionIds = new HashSet<>();
+        final Set<String> usedDistributionIds = new HashSet<>();
 
-        final ResIterator it = model.listSubjectsWithProperty(RDF.type, ResourceFactory.createResource("http://www.w3.org/ns/dcat#Dataset"));
+        final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Dataset);
         while (it.hasNext()) {
             Resource dataset = it.next();
             if (hasAtLeastOneValidDistribution(dataset)) {
                 usedDistributionIds.addAll(getDistributionsForDataset(dataset));
             } else {
                 model.remove(dataset.listProperties());
-                model.remove(model.listStatements(null, ResourceFactory.createProperty("http://www.w3.org/ns/dcat#dataset"), dataset));
+                model.remove(model.listStatements(null, DCAT.dataset, dataset));
             }
         }
 
@@ -62,8 +63,29 @@ public class CatalogFilter {
         removeUnusedLocations(model);
         minimizeLocations(model);
         rewriteHydraURLs(model);
+        addDownloadURLs(model);
 
         return model;
+    }
+
+    /**
+     * Add downloadURL properties to Distributions. The German DCAT-AP.de treats downloadURL as an no so
+     * important optional properties and relies the the accessURL. However, the European data portal values the
+     * downloadURL property highly.
+     */
+    void addDownloadURLs(Model model) {
+        final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Distribution);
+        while (it.hasNext()) {
+            final Resource distribution = it.next();
+
+            final Resource accessURL = distribution.getPropertyResourceValue(DCAT.accessURL);
+            final Resource downloadURL = distribution.getPropertyResourceValue(DCAT.downloadURL);
+
+            if( downloadURL == null ) {
+                distribution.addProperty(DCAT.downloadURL, accessURL);
+            }
+
+        }
     }
 
     void rewriteHydraURLs(Model model) {
@@ -72,9 +94,9 @@ public class CatalogFilter {
             final Resource pagedCollection = it.nextResource();
             final String originalURL = StringUtils.substringBefore(pagedCollection.getURI(), "catalog.xml");
 
-            List<Statement> changeStatements = new ArrayList<>();
+            final List<Statement> changeStatements = new ArrayList<>();
 
-            StmtIterator iterator = pagedCollection.listProperties();
+            final StmtIterator iterator = pagedCollection.listProperties();
             while (iterator.hasNext()) {
                 Statement stmt = iterator.next();
                 if (stmt.getObject().isLiteral()) {
@@ -92,7 +114,6 @@ public class CatalogFilter {
             }
 
             ResourceUtils.renameResource(pagedCollection, pagedCollection.getURI().replaceFirst(originalURL, baseURL));
-
         }
     }
 
@@ -130,7 +151,7 @@ public class CatalogFilter {
     void removeAnonymousResources(Model model) {
         final ResIterator it = model.listSubjects();
 
-        Collection<Resource> allObjects = allObjects(model);
+        final Collection<Resource> allObjects = allObjects(model);
 
         while (it.hasNext()) {
             Resource resource = it.next();
@@ -141,8 +162,8 @@ public class CatalogFilter {
     }
 
     Collection<Resource> allObjects(Model model) {
-        Set<Resource> result = new HashSet<>();
-        NodeIterator it = model.listObjects();
+        final Set<Resource> result = new HashSet<>();
+        final NodeIterator it = model.listObjects();
         while (it.hasNext()) {
             RDFNode next = it.next();
             if (next.isResource()) {
@@ -156,9 +177,9 @@ public class CatalogFilter {
      * Entfernt aus dem Model alle dcat:Distribution Instanzen, deren URI nicht in der angegebenen Collection enthalten sind.
      */
     void removeUnusedDistributions(Model model, Collection<String> usedDistributionIds) {
-        final ResIterator it = model.listSubjectsWithProperty(RDF.type, ResourceFactory.createResource("http://www.w3.org/ns/dcat#Distribution"));
+        final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Distribution);
         while (it.hasNext()) {
-            Resource distribution = it.next();
+            final Resource distribution = it.next();
             if (!usedDistributionIds.contains(distribution.getURI())) {
                 model.remove(distribution.listProperties());
             }
@@ -166,13 +187,11 @@ public class CatalogFilter {
     }
 
     Collection<String> getDistributionsForDataset(Resource dataset) {
-        Set<String> result = new HashSet<>();
-        StmtIterator it = dataset.listProperties(ResourceFactory.createProperty("http://www.w3.org/ns/dcat#distribution"));
+        final Set<String> result = new HashSet<>();
+        final StmtIterator it = dataset.listProperties(DCAT.distribution);
         while (it.hasNext()) {
-            Statement next = it.next();
-
-            Resource distribution = next.getObject().asResource();
-
+            final Statement next = it.next();
+            final Resource distribution = next.getObject().asResource();
             result.add(distribution.getURI());
         }
 
@@ -180,14 +199,14 @@ public class CatalogFilter {
     }
 
     boolean hasAtLeastOneValidDistribution(Resource dataset) {
-        StmtIterator it = dataset.listProperties(ResourceFactory.createProperty("http://www.w3.org/ns/dcat#distribution"));
+        final StmtIterator it = dataset.listProperties(ResourceFactory.createProperty("http://www.w3.org/ns/dcat#distribution"));
         boolean atLeastOneValidFormat = false;
 
         while (it.hasNext()) {
-            Statement next = it.next();
+            final Statement next = it.next();
 
-            Resource distribution = next.getObject().asResource();
-            RDFNode format = distribution.getProperty(DCTerms.format).getObject();
+            final Resource distribution = next.getObject().asResource();
+            final RDFNode format = distribution.getProperty(DCTerms.format).getObject();
             if (!UNWANTED_FORMATS.contains(format)) {
                 atLeastOneValidFormat = true;
             }
