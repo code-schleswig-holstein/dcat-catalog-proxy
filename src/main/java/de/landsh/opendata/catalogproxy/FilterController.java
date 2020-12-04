@@ -30,16 +30,16 @@ public class FilterController {
         if (page == null)
             page = 1;
 
-        log.info("catalog.xml?page={}", page);
+        log.debug("catalog.xml?page={}", page);
 
-        InputStream is = new URL(remoteURL + "catalog.xml?page=" + page).openStream();
-        Model model = catalogFilter.work(is);
+        final InputStream is = new URL(remoteURL + "catalog.xml?page=" + page).openStream();
+        final Model model = catalogFilter.work(is);
         is.close();
 
         response.setCharacterEncoding("utf-8");
         response.setContentType("application/rdf+xml");
 
-        Writer writer = response.getWriter();
+        final Writer writer = response.getWriter();
         model.write(writer);
         writer.close();
     }

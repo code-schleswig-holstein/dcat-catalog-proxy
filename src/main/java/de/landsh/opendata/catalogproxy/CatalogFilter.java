@@ -9,6 +9,8 @@ import org.apache.jena.util.ResourceUtils;
 import org.apache.jena.vocabulary.DCAT;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDF;
+import org.springframework.beans.factory.BeanInitializationException;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.InputStream;
@@ -17,7 +19,7 @@ import java.util.*;
 /**
  * Filtert eine DCAT-AP.de konforme catalog.xml Datei nach festgelegten Kriterien.
  */
-public class CatalogFilter {
+public class CatalogFilter implements InitializingBean {
 
 
     private static final Collection<Resource> UNWANTED_FORMATS = Arrays.asList(
@@ -27,7 +29,9 @@ public class CatalogFilter {
             ResourceFactory.createResource("http://publications.europa.eu/resource/authority/file-type/HTML")
     );
     private static final Property LOCN_GEOMETRY = ResourceFactory.createProperty("http://www.w3.org/ns/locn#geometry");
-
+    final private Map<String, String> urlReplacements = new HashMap<>();
+    @Value("#{${replaceURL:''}}")
+    List<String> replaceURL;
     @Value("${baseURL:http://localhost:8080/}")
     private String baseURL;
 
@@ -63,14 +67,15 @@ public class CatalogFilter {
         removeUnusedLocations(model);
         minimizeLocations(model);
         rewriteHydraURLs(model);
+        rewriteDownloadAndAccessURLs(model);
         addDownloadURLs(model);
 
         return model;
     }
 
     /**
-     * Add downloadURL properties to Distributions. The German DCAT-AP.de treats downloadURL as an no so
-     * important optional properties and relies the the accessURL. However, the European data portal values the
+     * Add downloadURL properties to Distributions. The German DCAT-AP.de treats downloadURL as a not so
+     * important optional properties and relies on the accessURL. However, the European data portal values the
      * downloadURL property highly.
      */
     void addDownloadURLs(Model model) {
@@ -81,8 +86,39 @@ public class CatalogFilter {
             final Resource accessURL = distribution.getPropertyResourceValue(DCAT.accessURL);
             final Resource downloadURL = distribution.getPropertyResourceValue(DCAT.downloadURL);
 
-            if( downloadURL == null ) {
+            if (downloadURL == null) {
                 distribution.addProperty(DCAT.downloadURL, accessURL);
+            }
+        }
+    }
+
+    private Resource replaceURIifNecessary(Resource res) {
+        if (res == null) return null;
+        final String uri = res.getURI();
+
+        for (String s : urlReplacements.keySet()) {
+            if (uri.startsWith(s)) {
+                return ResourceFactory.createResource(uri.replaceFirst(s, urlReplacements.get(s)));
+            }
+        }
+        return res;
+    }
+
+    void rewriteDownloadAndAccessURLs(Model model) {
+        final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Distribution);
+        while (it.hasNext()) {
+            final Resource distribution = it.next();
+
+            final Resource accessURL = replaceURIifNecessary(distribution.getPropertyResourceValue(DCAT.accessURL));
+            final Resource downloadURL = replaceURIifNecessary(distribution.getPropertyResourceValue(DCAT.downloadURL));
+
+            if (accessURL != null) {
+                distribution.removeAll(DCAT.accessURL);
+                distribution.addProperty(DCAT.accessURL, accessURL);
+            }
+            if (downloadURL != null) {
+                distribution.removeAll(DCAT.downloadURL);
+                distribution.addProperty(DCAT.downloadURL, downloadURL);
             }
 
         }
@@ -216,4 +252,17 @@ public class CatalogFilter {
         return atLeastOneValidFormat;
     }
 
+    @Override
+    public void afterPropertiesSet() throws Exception {
+
+        // Interpret the (optionally) specified replacement of download URLs.
+        if (replaceURL.size() % 2 != 0) {
+            throw new BeanInitializationException("replaceURL must be an array of even size, e.g. replaceURL= {'http://10.61.35.179/','https://opendata.schleswig-holstein.de/'}");
+        }
+        for (int i = 0; i < replaceURL.size(); i += 2) {
+            final String source = replaceURL.get(i);
+            final String target = replaceURL.get(i + 1);
+            urlReplacements.put(source, target);
+        }
+    }
 }

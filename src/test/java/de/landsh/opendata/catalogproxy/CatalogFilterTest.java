@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -118,5 +120,21 @@ public class CatalogFilterTest {
         assertNotNull(accessURL);
         assertNotNull(downloadURL);
         assertEquals("http://example.org/file.csv", downloadURL.getURI());
+    }
+
+    @Test
+    public void rewriteDownloadAndAccessURLs() throws Exception {
+        catalogFilter.replaceURL = Arrays.asList("http://example.org/","https://opendata.sh/","https://www.statistik-nord.de/","https://data.sh/");
+        catalogFilter.afterPropertiesSet();
+
+        final Model model = parseRdf(getClass().getResourceAsStream("/with_downloadURL.xml"));
+        catalogFilter.rewriteDownloadAndAccessURLs(model);
+
+        final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Distribution);
+        final Resource distribution = it.next();
+        final Resource accessURL = distribution.getPropertyResourceValue(DCAT.accessURL);
+        final Resource downloadURL = distribution.getPropertyResourceValue(DCAT.downloadURL);
+        assertEquals("https://data.sh/fileadmin/Dokumente/Statistische_Berichte/landwirtschaft/C_II_1_m_S/C_II_1_m0409_S.pdf", accessURL.getURI());
+        assertEquals("https://opendata.sh/file.csv", downloadURL.getURI());
     }
 }
