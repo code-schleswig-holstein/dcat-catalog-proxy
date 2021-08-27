@@ -74,6 +74,7 @@ public class CatalogFilter implements InitializingBean {
         rewriteDownloadAndAccessURLs(model);
         addDownloadURLs(model);
         addAccessRights(model);
+        addRights(model);
 
         return model;
     }
@@ -292,4 +293,24 @@ public class CatalogFilter implements InitializingBean {
             urlReplacements.put(source, target);
         }
     }
+
+    /**
+     * Add a dct:rights statement to Distributions. The German DCAT-AP.de treats dct:rights as a not so
+     * important optional property and relies on dct:license. However, the European data portal values the
+     * dct:rights property highly.
+     */
+    void addRights(Model model) {
+        final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Distribution);
+        while (it.hasNext()) {
+            final Resource distribution = it.next();
+
+            final Resource rights = distribution.getPropertyResourceValue(DCTerms.rights);
+            final Resource license = distribution.getPropertyResourceValue(DCTerms.license);
+
+            if (rights == null && license != null) {
+                distribution.addProperty(DCTerms.rights, license);
+            }
+        }
+    }
+
 }

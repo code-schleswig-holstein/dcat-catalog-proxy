@@ -156,7 +156,7 @@ public class CatalogFilterTest {
 
     /**
      * Check that a <code>dct:accessRights http://publications.europa.eu/resource/authority/access-right/PUBLIC</code>
-     * statement ist added to each dataset.
+     * statement has been added to each dataset.
      */
     @Test
     public void work_will_add_accessRights() throws Exception {
@@ -175,6 +175,31 @@ public class CatalogFilterTest {
         }
 
         assertEquals(8, count);
+
+        inputStream.close();
+    }
+
+    /**
+     * Check that a dct:rights statement has been added to each distribution and is equal to the dct:license statement.
+     */
+    @Test
+    public void work_will_add_rights() throws Exception {
+        final InputStream inputStream = getClass().getResourceAsStream("/with_collection.xml");
+        final Model model = catalogFilter.work(inputStream);
+
+        // Every dataset has a dct:accessRights statement
+        final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Distribution);
+        int count = 0;
+        while (it.hasNext()) {
+            final Resource distribution = it.next();
+            count++;
+            final Resource rights = distribution.getPropertyResourceValue(DCTerms.rights);
+            final Resource license = distribution.getPropertyResourceValue(DCTerms.license);
+            assertNotNull(rights);
+            assertEquals( license, rights);
+        }
+
+        assertEquals(7, count);
 
         inputStream.close();
     }
