@@ -21,17 +21,21 @@ import java.util.*;
  */
 public class CatalogFilter implements InitializingBean {
 
-
     private static final Collection<Resource> UNWANTED_FORMATS = Arrays.asList(
             ResourceFactory.createResource("http://publications.europa.eu/resource/authority/file-type/PDF"),
             ResourceFactory.createResource("http://publications.europa.eu/resource/authority/file-type/DOC"),
             ResourceFactory.createResource("http://publications.europa.eu/resource/authority/file-type/DOCX"),
             ResourceFactory.createResource("http://publications.europa.eu/resource/authority/file-type/HTML")
     );
+
+    private static final Resource ACCESS_RIGHTS_PUBLIC = ResourceFactory.createResource("http://publications.europa.eu/resource/authority/access-right/PUBLIC");
+
     private static final Property LOCN_GEOMETRY = ResourceFactory.createProperty("http://www.w3.org/ns/locn#geometry");
     final private Map<String, String> urlReplacements = new HashMap<>();
+
     @Value("#{${replaceURL:''}}")
     List<String> replaceURL;
+
     @Value("${baseURL:http://localhost:8080/}")
     private String baseURL;
 
@@ -69,8 +73,26 @@ public class CatalogFilter implements InitializingBean {
         rewriteHydraURLs(model);
         rewriteDownloadAndAccessURLs(model);
         addDownloadURLs(model);
+        addAccessRights(model);
 
         return model;
+    }
+
+    /**
+     * It is totally important to the European data portal that there is an <code>accessRights = PUBLIC</code> statement
+     * for every dataset.
+     */
+    private void addAccessRights(Model model) {
+        final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Dataset);
+        while (it.hasNext()) {
+            final Resource dataset = it.next();
+
+            final Resource accessRight = dataset.getPropertyResourceValue(DCTerms.accessRights);
+
+            if (accessRight == null) {
+                dataset.addProperty(DCTerms.accessRights, ACCESS_RIGHTS_PUBLIC);
+            }
+        }
     }
 
     /**
