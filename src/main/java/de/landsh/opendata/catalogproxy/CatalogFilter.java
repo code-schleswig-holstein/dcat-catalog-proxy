@@ -54,7 +54,7 @@ public class CatalogFilter implements InitializingBean {
         final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Dataset);
         while (it.hasNext()) {
             Resource dataset = it.next();
-            if (hasAtLeastOneValidDistribution(dataset)) {
+            if (hasAtLeastOneValidDistribution(dataset) || isCollection(dataset)) {
                 usedDistributionIds.addAll(getDistributionsForDataset(dataset));
             } else {
                 model.remove(dataset.listProperties());
@@ -232,6 +232,11 @@ public class CatalogFilter implements InitializingBean {
         }
 
         return result;
+    }
+
+    boolean isCollection(Resource dataset) {
+        final Resource type = dataset.getPropertyResourceValue(DCTerms.type);
+        return type != null && "http://dcat-ap.de/def/datasetTypes/collection".equals(type.getURI());
     }
 
     boolean hasAtLeastOneValidDistribution(Resource dataset) {

@@ -55,7 +55,7 @@ public class CatalogFilterTest {
     }
 
     @Test
-    public void test() throws Exception {
+    public void work() throws Exception {
         final InputStream inputStream = getClass().getResourceAsStream("/catalog.xml");
         catalogFilter.work(inputStream);
         inputStream.close();
@@ -136,5 +136,20 @@ public class CatalogFilterTest {
         final Resource downloadURL = distribution.getPropertyResourceValue(DCAT.downloadURL);
         assertEquals("https://data.sh/fileadmin/Dokumente/Statistische_Berichte/landwirtschaft/C_II_1_m_S/C_II_1_m0409_S.pdf", accessURL.getURI());
         assertEquals("https://opendata.sh/file.csv", downloadURL.getURI());
+    }
+
+    /**
+     * Collections (dcat:Dataset with dct:type "http://dcat-ap.de/def/datasetTypes/collection" will be included in the
+     * filtered results.
+     */
+    @Test
+    public void work_will_preseve_collections() throws Exception {
+        final InputStream inputStream = getClass().getResourceAsStream("/with_collection.xml");
+        final Model model = catalogFilter.work(inputStream);
+
+        Assertions.assertEquals(8, countInstances(model, DCAT.Dataset));
+        Assertions.assertEquals(7, countInstances(model, DCAT.Distribution));
+
+        inputStream.close();
     }
 }

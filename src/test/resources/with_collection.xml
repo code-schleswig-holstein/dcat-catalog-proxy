@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:spdx="http://spdx.org/rdf/terms#"
+  xmlns:locn="http://www.w3.org/ns/locn#"
+  xmlns:hydra="http://www.w3.org/ns/hydra/core#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcat="http://www.w3.org/ns/dcat#"
+  xmlns:dct="http://purl.org/dc/terms/"
+  xmlns:dcatde="http://dcat-ap.de/def/dcatde/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:schema="http://schema.org/"
+>
+  <dcat:Catalog rdf:about="https://opendata.schleswig-holstein.de">
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="https://opendata.schleswig-holstein.de/dataset/f1aeeb91-6935-4331-b41e-b32d79dfe4d3">
+        <dct:isVersionOf rdf:resource="https://opendata.schleswig-holstein.de/dataset/0714ffe5-e246-404c-8303-abeb1c21f33b"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/TECH"/>
+        <dct:title>Statistik Nachrichtenbroker 2018</dct:title>
+        <dct:description>Die Statistik gibt Auskunft über die Anzahl der über den Nachrichtenbroker vermittelten Nachrichten je Dienstpaket.&#13;
+&#13;
+Der *Nachrichtenbroker* ist eine zentrale Vermittlungsstelle, die man sich als eine „Datendrehscheibe“ vorstellen kann. Sie unterstützt und optimiert technisch und organisatorisch Kommunikationsvorgänge unterschiedlichster DV-Verfahren im Auftrag. Aufgabenschwerpunkt ist daher die sichere „Maschine (Fachverfahren) zu Maschine (Fachverfahren) Kommunikation“ für XÖV-Nachrichten.&#13;
+&#13;
+Der Nachrichtenbroker bietet diverse Dienste (Brokerdienste) an, wie beispielsweise XMeld Datenübermittlungen oder xdomea elektronischer Aufgrabeschein.</dct:description>
+        <dct:spatial rdf:resource="http://dcat-ap.de/def/politicalGeocoding/stateKey/01"/>
+        <dcat:keyword>XÖV</dcat:keyword>
+        <dct:publisher rdf:resource="https://opendata.schleswig-holstein.de/organization/d3faa6db-0ed5-435e-b235-c6b4bc2cb8ea"/>
+        <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+        <dct:identifier>f1aeeb91-6935-4331-b41e-b32d79dfe4d3</dct:identifier>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-14T12:36:18.234640</dct:modified>
+        <dcat:keyword>Nachrichtenbroker</dcat:keyword>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-08T00:00:00</dct:issued>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+        <dcat:distribution rdf:resource="https://opendata.schleswig-holstein.de/dataset/f1aeeb91-6935-4331-b41e-b32d79dfe4d3/resource/e32d9828-b880-4a48-80d4-9c9563a5e22f"/>
+        <dct:temporal>
+          <dct:PeriodOfTime rdf:nodeID="Na1d4a02e8ce846c19e5d370e16966f05">
+            <schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-01-01T00:00:00</schema:startDate>
+            <schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-12-31T00:00:00</schema:endDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+      </dcat:Dataset>
+    </dcat:dataset>
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="https://opendata.schleswig-holstein.de/dataset/a7d88277-c68d-4935-b911-000115d75d2b">
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+        <dcat:distribution rdf:resource="https://opendata.schleswig-holstein.de/dataset/a7d88277-c68d-4935-b911-000115d75d2b/resource/47fd3f77-a5ec-41da-bbfc-ff45444742b0"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+        <dct:temporal>
+          <dct:PeriodOfTime rdf:nodeID="N0ea87eb12eaa4b17b990f9e36cc2a10f">
+            <schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-01-01T00:00:00</schema:startDate>
+            <schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-12-31T00:00:00</schema:endDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dct:identifier>a7d88277-c68d-4935-b911-000115d75d2b</dct:identifier>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-11T00:00:00</dct:issued>
+        <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+        <dct:publisher rdf:resource="https://opendata.schleswig-holstein.de/organization/d3faa6db-0ed5-435e-b235-c6b4bc2cb8ea"/>
+        <dcat:keyword>Nachrichtenbroker</dcat:keyword>
+        <dct:spatial rdf:resource="http://dcat-ap.de/def/politicalGeocoding/stateKey/01"/>
+        <dct:title>Statistik Nachrichtenbroker 2020</dct:title>
+        <dct:isVersionOf rdf:resource="https://opendata.schleswig-holstein.de/dataset/0714ffe5-e246-404c-8303-abeb1c21f33b"/>
+        <dcat:keyword>XÖV</dcat:keyword>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-11T12:36:39.532730</dct:modified>
+        <dct:description>Die Statistik gibt Auskunft über die Anzahl der über den Nachrichtenbroker vermittelten Nachrichten je Dienstpaket.&#13;
+&#13;
+Der *Nachrichtenbroker* ist eine zentrale Vermittlungsstelle, die man sich als eine „Datendrehscheibe“ vorstellen kann. Sie unterstützt und optimiert technisch und organisatorisch Kommunikationsvorgänge unterschiedlichster DV-Verfahren im Auftrag. Aufgabenschwerpunkt ist daher die sichere „Maschine (Fachverfahren) zu Maschine (Fachverfahren) Kommunikation“ für XÖV-Nachrichten.&#13;
+&#13;
+Der Nachrichtenbroker bietet diverse Dienste (Brokerdienste) an, wie beispielsweise XMeld Datenübermittlungen oder xdomea elektronischer Aufgrabeschein.</dct:description>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/TECH"/>
+      </dcat:Dataset>
+    </dcat:dataset>
+    <dct:title>Open-Data Schleswig-Holstein</dct:title>
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="https://opendata.schleswig-holstein.de/dataset/c134f8c7-237d-4856-9055-633afe939e77">
+        <dct:title>Statistik Nachrichtenbroker</dct:title>
+        <dct:temporal>
+          <dct:PeriodOfTime rdf:nodeID="N90381b77904b450088af8ef4aeb6c2fd">
+            <schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00</schema:startDate>
+            <schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-03-31T00:00:00</schema:endDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+        <dcat:keyword>Nachrichtenbroker</dcat:keyword>
+        <dct:publisher rdf:resource="https://opendata.schleswig-holstein.de/organization/d3faa6db-0ed5-435e-b235-c6b4bc2cb8ea"/>
+        <dct:identifier>c134f8c7-237d-4856-9055-633afe939e77</dct:identifier>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-04-09T08:11:51.222874</dct:modified>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-04-09T00:00:00</dct:issued>
+        <dct:description>Die Statistik gibt Auskunft über die Anzahl der über den Nachrichtenbroker vermittelten Nachrichten je Dienstpaket.&#13;
+&#13;
+Der *Nachrichtenbroker* ist eine zentrale Vermittlungsstelle, die man sich als eine „Datendrehscheibe“ vorstellen kann. Sie unterstützt und optimiert technisch und organisatorisch Kommunikationsvorgänge unterschiedlichster DV-Verfahren im Auftrag. Aufgabenschwerpunkt ist daher die sichere „Maschine (Fachverfahren) zu Maschine (Fachverfahren) Kommunikation“ für XÖV-Nachrichten.&#13;
+&#13;
+Der Nachrichtenbroker bietet diverse Dienste (Brokerdienste) an, wie beispielsweise XMeld Datenübermittlungen oder xdomea elektronischer Aufgrabeschein.</dct:description>
+        <dcat:distribution rdf:resource="https://opendata.schleswig-holstein.de/dataset/c134f8c7-237d-4856-9055-633afe939e77/resource/eb7fd0ed-ba9f-45d9-9d5d-6a53c83db9e4"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dct:isVersionOf rdf:resource="https://opendata.schleswig-holstein.de/dataset/0714ffe5-e246-404c-8303-abeb1c21f33b"/>
+        <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+        <dcat:keyword>XÖV</dcat:keyword>
+        <dct:spatial rdf:resource="http://dcat-ap.de/def/politicalGeocoding/stateKey/01"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/TECH"/>
+      </dcat:Dataset>
+    </dcat:dataset>
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="https://opendata.schleswig-holstein.de/dataset/926fa24a-d3f9-422d-9ad5-27d7d04d3a56">
+        <dct:identifier>926fa24a-d3f9-422d-9ad5-27d7d04d3a56</dct:identifier>
+        <dct:title>Statistik Nachrichtenbroker</dct:title>
+        <dcat:keyword>Nachrichtenbroker</dcat:keyword>
+        <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+        <dct:temporal>
+          <dct:PeriodOfTime rdf:nodeID="N8b147f222ab4487abbc1faf2920ad453">
+            <schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-06-30T00:00:00</schema:endDate>
+            <schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00</schema:startDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+        <dct:description>Die Statistik gibt Auskunft über die Anzahl der über den Nachrichtenbroker vermittelten Nachrichten je Dienstpaket.&#13;
+&#13;
+Der *Nachrichtenbroker* ist eine zentrale Vermittlungsstelle, die man sich als eine „Datendrehscheibe“ vorstellen kann. Sie unterstützt und optimiert technisch und organisatorisch Kommunikationsvorgänge unterschiedlichster DV-Verfahren im Auftrag. Aufgabenschwerpunkt ist daher die sichere „Maschine (Fachverfahren) zu Maschine (Fachverfahren) Kommunikation“ für XÖV-Nachrichten.&#13;
+&#13;
+Der Nachrichtenbroker bietet diverse Dienste (Brokerdienste) an, wie beispielsweise XMeld Datenübermittlungen oder xdomea elektronischer Aufgrabeschein.</dct:description>
+        <dcat:keyword>XÖV</dcat:keyword>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-07-14T00:00:00</dct:issued>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+        <dct:isVersionOf rdf:resource="https://opendata.schleswig-holstein.de/dataset/0714ffe5-e246-404c-8303-abeb1c21f33b"/>
+        <dct:publisher rdf:resource="https://opendata.schleswig-holstein.de/organization/d3faa6db-0ed5-435e-b235-c6b4bc2cb8ea"/>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-07-14T09:50:29.259027</dct:modified>
+        <dct:spatial rdf:resource="http://dcat-ap.de/def/politicalGeocoding/stateKey/01"/>
+        <dcat:distribution rdf:resource="https://opendata.schleswig-holstein.de/dataset/926fa24a-d3f9-422d-9ad5-27d7d04d3a56/resource/5ec35399-f3e3-4300-8af6-19a7582340fa"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/TECH"/>
+      </dcat:Dataset>
+    </dcat:dataset>
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="https://opendata.schleswig-holstein.de/dataset/caaf7acf-a6e8-4ee9-a2ab-594cde699447">
+        <dct:identifier>caaf7acf-a6e8-4ee9-a2ab-594cde699447</dct:identifier>
+        <dct:spatial rdf:resource="http://dcat-ap.de/def/politicalGeocoding/stateKey/01"/>
+        <dcat:keyword>XÖV</dcat:keyword>
+        <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-10T00:00:00</dct:issued>
+        <dct:temporal>
+          <dct:PeriodOfTime rdf:nodeID="Nabb1c23e017a48a2af334b62616b30a1">
+            <schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-01-01T00:00:00</schema:startDate>
+            <schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-12-31T00:00:00</schema:endDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+        <dct:isVersionOf rdf:resource="https://opendata.schleswig-holstein.de/dataset/0714ffe5-e246-404c-8303-abeb1c21f33b"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+        <dct:description>Die Statistik gibt Auskunft über die Anzahl der über den Nachrichtenbroker vermittelten Nachrichten je Dienstpaket.&#13;
+&#13;
+Der *Nachrichtenbroker* ist eine zentrale Vermittlungsstelle, die man sich als eine „Datendrehscheibe“ vorstellen kann. Sie unterstützt und optimiert technisch und organisatorisch Kommunikationsvorgänge unterschiedlichster DV-Verfahren im Auftrag. Aufgabenschwerpunkt ist daher die sichere „Maschine (Fachverfahren) zu Maschine (Fachverfahren) Kommunikation“ für XÖV-Nachrichten.&#13;
+&#13;
+Der Nachrichtenbroker bietet diverse Dienste (Brokerdienste) an, wie beispielsweise XMeld Datenübermittlungen oder xdomea elektronischer Aufgrabeschein.</dct:description>
+        <dcat:distribution rdf:resource="https://opendata.schleswig-holstein.de/dataset/caaf7acf-a6e8-4ee9-a2ab-594cde699447/resource/2e30071c-aac5-4904-b5e4-ceda8e690da2"/>
+        <dct:publisher rdf:resource="https://opendata.schleswig-holstein.de/organization/d3faa6db-0ed5-435e-b235-c6b4bc2cb8ea"/>
+        <dct:title>Statistik Nachrichtenbroker 2019</dct:title>
+        <dcat:keyword>Nachrichtenbroker</dcat:keyword>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-14T12:35:58.167963</dct:modified>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/TECH"/>
+      </dcat:Dataset>
+    </dcat:dataset>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-08-27T04:13:54.398093</dct:modified>
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="https://opendata.schleswig-holstein.de/dataset/3ce641c3-83fd-4122-acf1-f13ebcf77f69">
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-06T00:00:00</dct:issued>
+        <dct:publisher rdf:resource="https://opendata.schleswig-holstein.de/organization/d3faa6db-0ed5-435e-b235-c6b4bc2cb8ea"/>
+        <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+        <dcat:distribution rdf:resource="https://opendata.schleswig-holstein.de/dataset/3ce641c3-83fd-4122-acf1-f13ebcf77f69/resource/e720f941-88e5-4ea7-a380-9942ae9d0633"/>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-14T12:36:32.312093</dct:modified>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/TECH"/>
+        <dct:title>Statistik Nachrichtenbroker 2016</dct:title>
+        <dct:identifier>3ce641c3-83fd-4122-acf1-f13ebcf77f69</dct:identifier>
+        <dcat:keyword>XÖV</dcat:keyword>
+        <dct:isVersionOf rdf:resource="https://opendata.schleswig-holstein.de/dataset/0714ffe5-e246-404c-8303-abeb1c21f33b"/>
+        <dct:temporal>
+          <dct:PeriodOfTime rdf:nodeID="N0b70ae76e8394d09b8aeac9cc80b5263">
+            <schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-31T00:00:00</schema:endDate>
+            <schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-01-01T00:00:00</schema:startDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+        <dct:description>Die Statistik gibt Auskunft über die Anzahl der über den Nachrichtenborker vermittelten Nachrichten je Dienstpaket.&#13;
+&#13;
+Der *Nachrichtenbroker* ist eine zentrale Vermittlungsstelle, die man sich als eine „Datendrehscheibe“ vorstellen kann. Sie unterstützt und optimiert technisch und organisatorisch Kommunikationsvorgänge unterschiedlichster DV-Verfahren im Auftrag. Aufgabenschwerpunkt ist daher die sichere „Maschine (Fachverfahren) zu Maschine (Fachverfahren) Kommunikation“ für XÖV-Nachrichten.&#13;
+&#13;
+Der Nachrichtenbroker bietet diverse Dienste (Brokerdienste) an, wie beispielsweise XMeld Datenübermittlungen oder xdomea elektronischer Aufgrabeschein.</dct:description>
+        <dct:spatial rdf:resource="http://dcat-ap.de/def/politicalGeocoding/stateKey/01"/>
+        <dcat:keyword>Nachrichtenbroker</dcat:keyword>
+      </dcat:Dataset>
+    </dcat:dataset>
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="https://opendata.schleswig-holstein.de/dataset/260d66a8-c7af-4a1b-9ecc-7a9260c4aa6e">
+        <dct:description>Die Statistik gibt Auskunft über die Anzahl der über den Nachrichtenbroker vermittelten Nachrichten je Dienstpaket.&#13;
+&#13;
+Der *Nachrichtenbroker* ist eine zentrale Vermittlungsstelle, die man sich als eine „Datendrehscheibe“ vorstellen kann. Sie unterstützt und optimiert technisch und organisatorisch Kommunikationsvorgänge unterschiedlichster DV-Verfahren im Auftrag. Aufgabenschwerpunkt ist daher die sichere „Maschine (Fachverfahren) zu Maschine (Fachverfahren) Kommunikation“ für XÖV-Nachrichten.&#13;
+&#13;
+Der Nachrichtenbroker bietet diverse Dienste (Brokerdienste) an, wie beispielsweise XMeld Datenübermittlungen oder xdomea elektronischer Aufgrabeschein.</dct:description>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dct:isVersionOf rdf:resource="https://opendata.schleswig-holstein.de/dataset/0714ffe5-e246-404c-8303-abeb1c21f33b"/>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-14T12:36:47.126641</dct:modified>
+        <dct:temporal>
+          <dct:PeriodOfTime rdf:nodeID="Nc9273d7e39ee45efa78068298e5cdd05">
+            <schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-12-31T00:00:00</schema:endDate>
+            <schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-01-01T00:00:00</schema:startDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+        <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+        <dcat:keyword>XÖV</dcat:keyword>
+        <dct:spatial rdf:resource="http://dcat-ap.de/def/politicalGeocoding/stateKey/01"/>
+        <dct:title>Statistik Nachrichtenbroker 2017</dct:title>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/TECH"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+        <dcat:keyword>Nachrichtenbroker</dcat:keyword>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-07T00:00:00</dct:issued>
+        <dct:publisher rdf:resource="https://opendata.schleswig-holstein.de/organization/d3faa6db-0ed5-435e-b235-c6b4bc2cb8ea"/>
+        <dct:identifier>260d66a8-c7af-4a1b-9ecc-7a9260c4aa6e</dct:identifier>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+        <dcat:distribution rdf:resource="https://opendata.schleswig-holstein.de/dataset/260d66a8-c7af-4a1b-9ecc-7a9260c4aa6e/resource/165428d2-4c89-4ad6-bc4e-293bf8d9f387"/>
+      </dcat:Dataset>
+    </dcat:dataset>
+    <foaf:homepage rdf:resource="https://opendata.schleswig-holstein.de"/>
+    <dcat:dataset>
+      <dcat:Dataset rdf:about="https://opendata.schleswig-holstein.de/dataset/0714ffe5-e246-404c-8303-abeb1c21f33b">
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-11T11:56:53.324954</dct:modified>
+        <dct:type rdf:resource="http://dcat-ap.de/def/datasetTypes/collection"/>
+        <dct:hasVersion rdf:resource="https://opendata.schleswig-holstein.de/dataset/3ce641c3-83fd-4122-acf1-f13ebcf77f69"/>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dct:identifier>0714ffe5-e246-404c-8303-abeb1c21f33b</dct:identifier>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-11T11:56:53.324949</dct:issued>
+        <dct:title>Statistik Nachrichtenbroker</dct:title>
+        <dct:hasVersion rdf:resource="https://opendata.schleswig-holstein.de/dataset/260d66a8-c7af-4a1b-9ecc-7a9260c4aa6e"/>
+        <dct:publisher rdf:resource="https://opendata.schleswig-holstein.de/organization/d3faa6db-0ed5-435e-b235-c6b4bc2cb8ea"/>
+        <dct:hasVersion rdf:resource="https://opendata.schleswig-holstein.de/dataset/c134f8c7-237d-4856-9055-633afe939e77"/>
+        <dct:hasVersion rdf:resource="https://opendata.schleswig-holstein.de/dataset/926fa24a-d3f9-422d-9ad5-27d7d04d3a56"/>
+        <dct:hasVersion rdf:resource="https://opendata.schleswig-holstein.de/dataset/f1aeeb91-6935-4331-b41e-b32d79dfe4d3"/>
+        <dct:hasVersion rdf:resource="https://opendata.schleswig-holstein.de/dataset/a7d88277-c68d-4935-b911-000115d75d2b"/>
+        <dct:hasVersion rdf:resource="https://opendata.schleswig-holstein.de/dataset/caaf7acf-a6e8-4ee9-a2ab-594cde699447"/>
+      </dcat:Dataset>
+    </dcat:dataset>
+  </dcat:Catalog>
+  <hydra:PagedCollection rdf:about="https://opendata.schleswig-holstein.de/catalog.xml?q=nachrichtenbroker&amp;page=1">
+    <hydra:itemsPerPage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</hydra:itemsPerPage>
+    <hydra:firstPage>https://opendata.schleswig-holstein.de/catalog.xml?q=nachrichtenbroker&amp;page=1</hydra:firstPage>
+    <hydra:lastPage>https://opendata.schleswig-holstein.de/catalog.xml?q=nachrichtenbroker&amp;page=1</hydra:lastPage>
+    <hydra:totalItems rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</hydra:totalItems>
+  </hydra:PagedCollection>
+  <dcat:Distribution rdf:about="https://opendata.schleswig-holstein.de/dataset/c134f8c7-237d-4856-9055-633afe939e77/resource/eb7fd0ed-ba9f-45d9-9d5d-6a53c83db9e4">
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+    <dct:title>Statistik Q1 2021.csv</dct:title>
+    <spdx:checksum>
+      <spdx:Checksum rdf:nodeID="N902cf8fe037246bba94abd2aed020f80">
+        <spdx:checksumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">7c9028853d82ca775064cfef4d0a5e21</spdx:checksumValue>
+        <spdx:algorithm rdf:resource="http://dcat-ap.de/def/hashAlgorithms/md/5"/>
+      </spdx:Checksum>
+    </spdx:checksum>
+    <dcat:accessURL rdf:resource="https://opendata.schleswig-holstein.de/dataset/c134f8c7-237d-4856-9055-633afe939e77/resource/eb7fd0ed-ba9f-45d9-9d5d-6a53c83db9e4/download/2021-q1.csv"/>
+    <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">712.0</dcat:byteSize>
+    <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+    <dcat:mediaType>text/csv</dcat:mediaType>
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://opendata.schleswig-holstein.de/dataset/3ce641c3-83fd-4122-acf1-f13ebcf77f69/resource/e720f941-88e5-4ea7-a380-9942ae9d0633">
+    <dct:title>2016.csv</dct:title>
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+    <spdx:checksum>
+      <spdx:Checksum rdf:nodeID="Nda79d9fb70ac4c66af9877217d8c44c9">
+        <spdx:checksumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">aee3d3ee1760e299b66ce78aa994641d</spdx:checksumValue>
+        <spdx:algorithm rdf:resource="http://dcat-ap.de/def/hashAlgorithms/md/5"/>
+      </spdx:Checksum>
+    </spdx:checksum>
+    <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+    <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">852.0</dcat:byteSize>
+    <dcat:accessURL rdf:resource="https://opendata.schleswig-holstein.de/dataset/3ce641c3-83fd-4122-acf1-f13ebcf77f69/resource/e720f941-88e5-4ea7-a380-9942ae9d0633/download/2016.csv"/>
+    <dcat:mediaType>text/csv</dcat:mediaType>
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://opendata.schleswig-holstein.de/dataset/260d66a8-c7af-4a1b-9ecc-7a9260c4aa6e/resource/165428d2-4c89-4ad6-bc4e-293bf8d9f387">
+    <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+    <dcat:mediaType>text/csv</dcat:mediaType>
+    <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">693.0</dcat:byteSize>
+    <spdx:checksum>
+      <spdx:Checksum rdf:nodeID="N78badddcc48b4d99808959493623cb18">
+        <spdx:algorithm rdf:resource="http://dcat-ap.de/def/hashAlgorithms/md/5"/>
+        <spdx:checksumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">d347010482c79b8961ba7510178fcdfd</spdx:checksumValue>
+      </spdx:Checksum>
+    </spdx:checksum>
+    <dct:title>2017.csv</dct:title>
+    <dcat:accessURL rdf:resource="https://opendata.schleswig-holstein.de/dataset/260d66a8-c7af-4a1b-9ecc-7a9260c4aa6e/resource/165428d2-4c89-4ad6-bc4e-293bf8d9f387/download/2017.csv"/>
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://opendata.schleswig-holstein.de/dataset/926fa24a-d3f9-422d-9ad5-27d7d04d3a56/resource/5ec35399-f3e3-4300-8af6-19a7582340fa">
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+    <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">787.0</dcat:byteSize>
+    <spdx:checksum>
+      <spdx:Checksum rdf:nodeID="Na95edcfcd7954c06b4b62c011da10aff">
+        <spdx:checksumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">937cff568fa37c3c8ac2be9c503aa39c</spdx:checksumValue>
+        <spdx:algorithm rdf:resource="http://dcat-ap.de/def/hashAlgorithms/md/5"/>
+      </spdx:Checksum>
+    </spdx:checksum>
+    <dct:title>Statistik Q2 2021.csv</dct:title>
+    <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+    <dcat:mediaType>text/csv</dcat:mediaType>
+    <dcat:accessURL rdf:resource="https://opendata.schleswig-holstein.de/dataset/926fa24a-d3f9-422d-9ad5-27d7d04d3a56/resource/5ec35399-f3e3-4300-8af6-19a7582340fa/download/2021-q2.csv"/>
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://opendata.schleswig-holstein.de/dataset/f1aeeb91-6935-4331-b41e-b32d79dfe4d3/resource/e32d9828-b880-4a48-80d4-9c9563a5e22f">
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+    <dcat:accessURL rdf:resource="https://opendata.schleswig-holstein.de/dataset/f1aeeb91-6935-4331-b41e-b32d79dfe4d3/resource/e32d9828-b880-4a48-80d4-9c9563a5e22f/download/2018.csv"/>
+    <dct:title>2018.csv</dct:title>
+    <spdx:checksum>
+      <spdx:Checksum rdf:nodeID="N996e72eff43f4ac9aaaa03da9ca497c6">
+        <spdx:checksumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">42a586be7a6f0b368be33769a959555d</spdx:checksumValue>
+        <spdx:algorithm rdf:resource="http://dcat-ap.de/def/hashAlgorithms/md/5"/>
+      </spdx:Checksum>
+    </spdx:checksum>
+    <dcat:mediaType>text/csv</dcat:mediaType>
+    <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">727.0</dcat:byteSize>
+    <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+  </dcat:Distribution>
+  <dct:Location rdf:about="http://dcat-ap.de/def/politicalGeocoding/stateKey/01">
+    <skos:prefLabel>Bundesland Schleswig-Holstein</skos:prefLabel>
+  </dct:Location>
+  <dcat:Distribution rdf:about="https://opendata.schleswig-holstein.de/dataset/a7d88277-c68d-4935-b911-000115d75d2b/resource/47fd3f77-a5ec-41da-bbfc-ff45444742b0">
+    <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+    <dcat:mediaType>text/csv</dcat:mediaType>
+    <dct:title>2020.csv</dct:title>
+    <dcat:accessURL rdf:resource="https://opendata.schleswig-holstein.de/dataset/a7d88277-c68d-4935-b911-000115d75d2b/resource/47fd3f77-a5ec-41da-bbfc-ff45444742b0/download/2020.csv"/>
+    <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">811.0</dcat:byteSize>
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+    <spdx:checksum>
+      <spdx:Checksum rdf:nodeID="N5422bd01d0d6415cb978e0b01a444dc9">
+        <spdx:checksumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">6a85b447d6e708943508c3dc55030b7d</spdx:checksumValue>
+        <spdx:algorithm rdf:resource="http://dcat-ap.de/def/hashAlgorithms/md/5"/>
+      </spdx:Checksum>
+    </spdx:checksum>
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://opendata.schleswig-holstein.de/dataset/caaf7acf-a6e8-4ee9-a2ab-594cde699447/resource/2e30071c-aac5-4904-b5e4-ceda8e690da2">
+    <spdx:checksum>
+      <spdx:Checksum rdf:nodeID="Naf799c4c17014d398acacac506be645b">
+        <spdx:checksumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">70a012f2f1b0feadb71c79fc144dedf3</spdx:checksumValue>
+        <spdx:algorithm rdf:resource="http://dcat-ap.de/def/hashAlgorithms/md/5"/>
+      </spdx:Checksum>
+    </spdx:checksum>
+    <dcat:accessURL rdf:resource="https://opendata.schleswig-holstein.de/dataset/caaf7acf-a6e8-4ee9-a2ab-594cde699447/resource/2e30071c-aac5-4904-b5e4-ceda8e690da2/download/2019.csv"/>
+    <dct:title>2019.csv</dct:title>
+    <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">815.0</dcat:byteSize>
+    <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-zero"/>
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+    <dcat:mediaType>text/csv</dcat:mediaType>
+  </dcat:Distribution>
+  <foaf:Organization rdf:about="https://opendata.schleswig-holstein.de/organization/d3faa6db-0ed5-435e-b235-c6b4bc2cb8ea">
+    <foaf:name>Zentrales IT-Management Schleswig-Holstein </foaf:name>
+  </foaf:Organization>
+</rdf:RDF>
