@@ -8,6 +8,7 @@ import org.apache.jena.riot.RDFLanguages;
 import org.apache.jena.riot.RDFParser;
 import org.apache.jena.riot.system.ErrorHandlerFactory;
 import org.apache.jena.vocabulary.DCAT;
+import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDF;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -149,6 +150,31 @@ public class CatalogFilterTest {
 
         Assertions.assertEquals(8, countInstances(model, DCAT.Dataset));
         Assertions.assertEquals(7, countInstances(model, DCAT.Distribution));
+
+        inputStream.close();
+    }
+
+    /**
+     * Check that a <code>dct:accessRights http://publications.europa.eu/resource/authority/access-right/PUBLIC</code>
+     * statement ist added to each dataset.
+     */
+    @Test
+    public void work_will_add_accessRights() throws Exception {
+        final InputStream inputStream = getClass().getResourceAsStream("/with_collection.xml");
+        final Model model = catalogFilter.work(inputStream);
+
+        // Every dataset has a dct:accessRights statement
+        final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Dataset);
+        int count = 0;
+        while (it.hasNext()) {
+            final Resource distribution = it.next();
+            count++;
+            final Resource accessRights = distribution.getPropertyResourceValue(DCTerms.accessRights);
+            assertNotNull(accessRights);
+            assertEquals("http://publications.europa.eu/resource/authority/access-right/PUBLIC", accessRights.getURI());
+        }
+
+        assertEquals(8, count);
 
         inputStream.close();
     }
