@@ -1,5 +1,6 @@
 package de.landsh.opendata.catalogproxy;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.jena.rdf.model.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Writer;
 import java.net.URL;
+import java.net.URLEncoder;
 
 @Controller
 public class FilterController {
@@ -26,13 +28,33 @@ public class FilterController {
     private CatalogFilter catalogFilter;
 
     @RequestMapping(value = "/catalog.xml", produces = "application/rdf+xml")
-    public void catalog(@RequestParam(required = false) Integer page, HttpServletResponse response) throws IOException {
+    public void catalog(@RequestParam(required = false) Integer page,
+                        @RequestParam(required = false) String  q,
+                        @RequestParam(required = false) String  fq,
+                        @RequestParam(required = false, name="modified_since") String  modifiedSince,
+                        HttpServletResponse response) throws IOException {
         if (page == null)
             page = 1;
 
         log.debug("catalog.xml?page={}", page);
 
-        final InputStream is = new URL(remoteURL + "catalog.xml?page=" + page).openStream();
+        final StringBuilder url = new StringBuilder(remoteURL);
+        url.append("catalog.xml?page=");
+        url.append(page);
+        if(StringUtils.isNotBlank(modifiedSince)) {
+            url.append("&modified_since=");
+            url.append(URLEncoder.encode(modifiedSince, "utf-8"));
+        }
+        if(StringUtils.isNotBlank(q)) {
+            url.append("&q=");
+            url.append(URLEncoder.encode(q, "utf-8"));
+        }
+        if(StringUtils.isNotBlank(fq)) {
+            url.append("&fq=");
+            url.append(URLEncoder.encode(fq, "utf-8"));
+        }
+
+        final InputStream is = new URL(url.toString()).openStream();
         final Model model = catalogFilter.work(is);
         is.close();
 
