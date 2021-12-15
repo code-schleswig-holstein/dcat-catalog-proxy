@@ -43,11 +43,11 @@ public class CatalogFilter implements InitializingBean {
         this.baseURL = baseURL;
     }
 
-    Model work(InputStream in) {
+    Model work(InputStream inputStream) {
         final Model model = ModelFactory.createDefaultModel();
 
         RDFParser.create()
-                .source(in)
+                .source(new FilterInvalidRDF(inputStream))
                 .lang(RDFLanguages.RDFXML)
                 .errorHandler(ErrorHandlerFactory.errorHandlerStrict)
                 .base(baseURL)
@@ -57,7 +57,7 @@ public class CatalogFilter implements InitializingBean {
 
         final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Dataset);
         while (it.hasNext()) {
-            Resource dataset = it.next();
+            final Resource dataset = it.next();
             if (hasAtLeastOneValidDistribution(dataset) || isCollection(dataset)) {
                 usedDistributionIds.addAll(getDistributionsForDataset(dataset));
             } else {
@@ -268,13 +268,14 @@ public class CatalogFilter implements InitializingBean {
 
         while (it.hasNext()) {
             final Statement next = it.next();
-
             final Resource distribution = next.getObject().asResource();
-            final RDFNode format = distribution.getProperty(DCTerms.format).getObject();
-            if (!UNWANTED_FORMATS.contains(format)) {
-                atLeastOneValidFormat = true;
+            final Statement formatStatement = distribution.getProperty(DCTerms.format);
+            if (formatStatement != null) {
+                final RDFNode format = formatStatement.getObject();
+                if (!UNWANTED_FORMATS.contains(format)) {
+                    atLeastOneValidFormat = true;
+                }
             }
-
         }
 
         return atLeastOneValidFormat;

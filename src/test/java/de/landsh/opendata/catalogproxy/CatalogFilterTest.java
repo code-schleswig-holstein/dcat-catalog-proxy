@@ -203,4 +203,14 @@ public class CatalogFilterTest {
 
         inputStream.close();
     }
+
+    /**
+     * CKAN produces catalog.xml documents with invalid IRIs and invalid XML content (ampersand not escaped). The
+     * catalog proxy must be able to cope with this.
+     */
+    @Test
+    public void work_invalid_iri() {
+        final InputStream inputStream = getClass().getResourceAsStream("/invalid_iri.xml");
+        final Model model = catalogFilter.work(inputStream);
+    }
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:locn="http://www.w3.org/ns/locn#"
+  xmlns:hydra="http://www.w3.org/ns/hydra/core#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcat="http://www.w3.org/ns/dcat#"
+  xmlns:dct="http://purl.org/dc/terms/"
+  xmlns:schema="http://schema.org/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+  xmlns:dcatde="http://dcat-ap.de/def/dcatde/1.0.1/"
+>
+  <dcat:Catalog rdf:about="http://opendata.schleswig-holstein.de">
+  
+<dcat:dataset>
+<dcat:Dataset rdf:about="https://opendata.schleswig-holstein.de/dataset/automatische-zahlstelle-neustadt i. h.-süd-2012">
+<dct:temporal>
+<dct:PeriodOfTime rdf:nodeID="N773ff85828024b228e9181e2ae5ef643">
+<schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-12-31T00:00:00</schema:endDate>
+<schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-01-01T00:00:00</schema:startDate>
+</dct:PeriodOfTime>
+</dct:temporal>
+<dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+<dct:publisher rdf:resource="https://opendata.schleswig-holstein.de/organization/1982b7c4-fb92-42aa-a25a-6ddb492d7e5d"/>
+<dcat:keyword>LKW</dcat:keyword>
+<dcat:keyword>A1</dcat:keyword>
+<dcat:keyword>Autobahn</dcat:keyword>
+<dcat:distribution rdf:resource="https://www.bast.de/videos/2012/zst1105.zip"/>
+<dcatde:licenseAttributionByText>Bundesanstalt für Straßenwesen (BASt)</dcatde:licenseAttributionByText>
+<dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-02T00:00:00</dct:modified>
+<dct:title>Automatische Zählstelle Neustadt i. H.-Süd 2012</dct:title>
+<dcat:keyword>Verkehrszählung</dcat:keyword>
+<dcat:keyword>PKW</dcat:keyword>
+<dct:license rdf:resource="http://dcat-ap.de/def/licenses/dl-by-de/2.0"/>
+<dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-12-02T00:00:00</dct:issued>
+<dct:spatial>
+<dct:Location rdf:nodeID="Nc211cc07fede4137b843b6505ba8a3a2">
+<locn:geometry rdf:datatype="https://www.iana.org/assignments/media-types/application/vnd.geo+json">
+{"type": "Point", "coordinates": [10.78103, 54.10379]}
+</locn:geometry>
+<locn:geometry rdf:datatype="http://www.opengis.net/ont/geosparql#wktLiteral">POINT (10.7810 54.1038)</locn:geometry>
+</dct:Location>
+</dct:spatial>
+<dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/TRAN"/>
+<dct:identifier>
+https://opendata.schleswig-holstein.de/dataset/automatische-zahlstelle-neustadt i. h.-süd-2012
+</dct:identifier>
+<dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+<dct:description>
+Auf Deutschlands Autobahnen und außerörtlichen Bundesstraßen werden an automatischen Zählstellen alle Fahrzeuge permanent gezählt. Je nach eingesetztem Gerätetyp können bis zu neun Fahrzeugarten unterschieden werden. Die Daten werden von den Bundesländern erhoben und der BASt quartalsweise übermittelt. Auf dieser Basis werden Jahresfahrleistungen und durchschnittliche tägliche Verkehrsstärken (DTV) berechnet. Die Daten bilden eine wichtige Grundlage für verkehrs- oder bautechnische Entscheidungen und Maßnahmen Informationen zu den verwendeten Erfassungsarten und Abkürzungen: - [Erfassungsarten nach TLS (PDF)](https://www.bast.de/BASt_2017/DE/Verkehrstechnik/Fachthemen/v2-verkehrszaehlung/pdf-dateien/erfassungsarten.pdf?__blob=publicationFile) - [Abkürzungen und CSV-Datensatzbeschreibung (PDF)](https://www.bast.de/BASt_2017/DE/Verkehrstechnik/Fachthemen/v2-verkehrszaehlung/pdf-dateien/abkuerzungen.pdf?__blob=publicationFile) [Informationsseite zur Zählstelle](https://www.bast.de/DE/Verkehrstechnik/Fachthemen/v2-verkehrszaehlung/Aktuell/zaehl_aktuell_node.html?nn=1819516&cms_detail=1105&cms_map=0)
+</dct:description>
+</dcat:Dataset>
+</dcat:dataset>
+</dcat:Catalog>
+</rdf:RDF>
