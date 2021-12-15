@@ -3,6 +3,7 @@ package de.landsh.opendata.catalogproxy;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -22,6 +23,32 @@ public class FilterInvalidRDFTest {
     }
 
     @Test
+    public void read_empty_stream() throws IOException {
+        InputStream inputStream = new FilterInvalidRDF(new ByteArrayInputStream(new byte[0]));
+        assertEquals(-1, inputStream.read());
+    }
+
+    @Test
+    public void read_empty_line() throws IOException {
+        InputStream inputStream = new FilterInvalidRDF(new ByteArrayInputStream("\n".getBytes()));
+        String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+        assertEquals("\n", result);
+    }
+    @Test
+    public void read_empty_lines() throws IOException {
+        InputStream inputStream = new FilterInvalidRDF(new ByteArrayInputStream("\n\n\n".getBytes()));
+        String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+        assertEquals("\n\n\n", result);
+    }
+
+    @Test
+    public void read_no_newline() throws IOException {
+        InputStream inputStream = new FilterInvalidRDF(new ByteArrayInputStream("OK".getBytes()));
+        String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+        assertEquals("OK\n", result);
+    }
+
+    @Test
     public void read_iri_with_space() throws IOException {
         final String invalidIRI = "\"https://opendata.schleswig-holstein.de/dataset/automatische-zahlstelle-neustadt i. h.-süd-2012\"";
         final String correctedIRI = "\"https://opendata.schleswig-holstein.de/dataset/automatische-zahlstelle-neustadt%20i.%20h.-süd-2012\"";
@@ -30,7 +57,7 @@ public class FilterInvalidRDFTest {
         final String correctedURL = "https://www.bast.de/DE/Verkehrstechnik/Fachthemen/v2-verkehrszaehlung/Aktuell/zaehl_aktuell_node.html?nn=1819516&amp;cms_detail=1105&amp;cms_map=0";
 
         String expectedResult = IOUtils.toString(getClass().getResourceAsStream("/invalid_iri.xml"), StandardCharsets.UTF_8)
-                .replace(invalidIRI,correctedIRI)
+                .replace(invalidIRI, correctedIRI)
                 .replace(invalidURL, correctedURL);
 
         InputStream inputStream = new FilterInvalidRDF(getClass().getResourceAsStream("/invalid_iri.xml"));
@@ -59,6 +86,5 @@ public class FilterInvalidRDFTest {
     @Test
     public void filterLine_invalid_xml_entity() {
         assertEquals("?nn=1819516&amp;cms_detail=1105&amp;cms_map=0", FilterInvalidRDF.filterLine("?nn=1819516&cms_detail=1105&cms_map=0"));
-
     }
 }

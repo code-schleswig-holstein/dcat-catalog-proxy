@@ -31,13 +31,13 @@ public class FilterInvalidRDF extends InputStream {
             String[] fragments = line.split("&");
             for (int i = 1; i < fragments.length; i++) {
                 String fragment = fragments[i];
-                if( !(fragment.startsWith("#") || fragment.startsWith("amp") || fragment.startsWith("apos")
-                || fragment.startsWith("quot") || fragment.startsWith("lt")|| fragment.startsWith("gt"))) {
+                if (!(fragment.startsWith("#") || fragment.startsWith("amp") || fragment.startsWith("apos")
+                        || fragment.startsWith("quot") || fragment.startsWith("lt") || fragment.startsWith("gt"))) {
                     // invalid character entity reference
-                    fragments[i] = "amp;"+ fragment;
+                    fragments[i] = "amp;" + fragment;
                 }
             }
-            line = StringUtils.join(fragments,"&");
+            line = StringUtils.join(fragments, "&");
         }
 
         String before = null;
@@ -84,12 +84,6 @@ public class FilterInvalidRDF extends InputStream {
             return -1;
         }
 
-        // insert a newline character at the end of each line
-        if (index == currentLine.length) {
-            index++;
-            return '\n';
-        }
-
         if (index > currentLine.length) {
             readNextLine();
         }
@@ -97,7 +91,12 @@ public class FilterInvalidRDF extends InputStream {
         if (currentLine == null) {
             return -1;
         }
-
+        // insert a newline character at the end of each line
+        if (index == currentLine.length) {
+            index++;
+            return '\n';
+        }
+        
         byte result = currentLine[index];
         index++;
         return result;
