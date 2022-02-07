@@ -6,8 +6,19 @@ cache:
   paths:
     - .m2/repository
 
-test:
+stages:
+  - build
+  - test
+
+build:
+  stage: build
   image: maven:3-openjdk-11
+  script: "mvn clean package -B"
+  artifacts:
+    paths:
+      - target/*.jar
+
+test:
   stage: test
-  script: 
-    - mvn --no-transfer-progress test
+  image: maven:3-openjdk-11
+  script: "mvn verify -B"
