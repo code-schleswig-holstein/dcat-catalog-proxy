@@ -14,9 +14,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -125,7 +125,7 @@ public class CatalogFilterTest {
 
     @Test
     public void rewriteDownloadAndAccessURLs() throws Exception {
-        catalogFilter.replaceURL = Arrays.asList("http://example.org/","https://opendata.sh/","https://www.statistik-nord.de/","https://data.sh/");
+        catalogFilter.replaceURL = Arrays.asList("http://example.org/", "https://opendata.sh/", "https://www.statistik-nord.de/", "https://data.sh/");
         catalogFilter.afterPropertiesSet();
 
         final Model model = parseRdf(getClass().getResourceAsStream("/with_downloadURL.xml"));
@@ -196,7 +196,7 @@ public class CatalogFilterTest {
             final Resource rights = distribution.getPropertyResourceValue(DCTerms.rights);
             final Resource license = distribution.getPropertyResourceValue(DCTerms.license);
             assertNotNull(rights);
-            assertEquals( license, rights);
+            assertEquals(license, rights);
         }
 
         assertEquals(7, count);
@@ -213,4 +213,21 @@ public class CatalogFilterTest {
         final InputStream inputStream = getClass().getResourceAsStream("/invalid_iri.xml");
         final Model model = catalogFilter.work(inputStream);
     }
+
+    /**
+     * The filter will remove datasets from non government organizations.
+     */
+    @Test
+    public void work_will_remove_non_government_organization() throws IOException {
+        catalogFilter.unwantedPublishers = Collections.singletonList("https://opendata.schleswig-holstein.de/organization/ee4df032-ec5f-4726-b7ad-a2c708fb53ec");
+
+        final InputStream inputStream = getClass().getResourceAsStream("/two-organizations.xml");
+        final Model model = catalogFilter.work(inputStream);
+
+        Assertions.assertEquals(1, countInstances(model, DCAT.Dataset));
+        Assertions.assertEquals(1, countInstances(model, DCAT.Distribution));
+
+        inputStream.close();
+    }
+
 }

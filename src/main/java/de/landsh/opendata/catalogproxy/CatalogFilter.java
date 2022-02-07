@@ -36,6 +36,9 @@ public class CatalogFilter implements InitializingBean {
     @Value("#{${replaceURL:''}}")
     List<String> replaceURL;
 
+    @Value("#{${unwantedPublishers:''}}")
+    List<String> unwantedPublishers;
+
     @Value("${baseURL:http://localhost:8080/}")
     private String baseURL;
 
@@ -58,7 +61,7 @@ public class CatalogFilter implements InitializingBean {
         final ResIterator it = model.listSubjectsWithProperty(RDF.type, DCAT.Dataset);
         while (it.hasNext()) {
             final Resource dataset = it.next();
-            if (hasAtLeastOneValidDistribution(dataset) || isCollection(dataset)) {
+            if (includeThisDataset(dataset)) {
                 usedDistributionIds.addAll(getDistributionsForDataset(dataset));
             } else {
                 model.remove(dataset.listProperties());
@@ -77,6 +80,22 @@ public class CatalogFilter implements InitializingBean {
         addRights(model);
 
         return model;
+    }
+
+    /**
+     * Determine if the specified dataset follows the rules of GovData and should be included in the output.
+     *
+     * @param dataset RDF data of the dataset
+     * @return true if the dataset should be included
+     */
+    private boolean includeThisDataset(Resource dataset) {
+        return isDatasetOfPublicAdministration(dataset) && (hasAtLeastOneValidDistribution(dataset) || isCollection(dataset));
+    }
+
+    boolean isDatasetOfPublicAdministration(Resource dataset) {
+        final Resource publisher = dataset.getPropertyResourceValue(DCTerms.publisher);
+        final String uri = publisher == null ? null : publisher.getURI();
+        return unwantedPublishers == null || !unwantedPublishers.contains(uri);
     }
 
     /**

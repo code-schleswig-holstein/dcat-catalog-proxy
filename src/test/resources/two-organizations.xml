@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:locn="http://www.w3.org/ns/locn#"
+  xmlns:hydra="http://www.w3.org/ns/hydra/core#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcat="http://www.w3.org/ns/dcat#"
+  xmlns:dct="http://purl.org/dc/terms/"
+  xmlns:schema="http://schema.org/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:dcatde="http://dcat-ap.de/def/dcatde/"
+>
+  <dcat:Catalog rdf:about="https://opendata.schleswig-holstein.de">
+  <dcat:dataset>
+      <dcat:Dataset rdf:about="http://llur.landsh.de/pegel/114437/Wasserstand">
+        <dct:description>
+Alle Daten sind Rohdaten ohne Gewähr. Das Land Schleswig-Holstein übernimmt keine Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der dargestellten Informationen. Haftungsansprüche sind grundsätzlich ausgeschlossen.
+
+
+[Informationen zum Pegel](https://www.umweltdaten.landsh.de/pegel/jsp/pegel.jsp?mstnr=114437&amp;wsize=free)
+
+Der Datensatz enthält folgende Felder
+
+* **Zeit** im Format `dd.MM.yyyy HH:mm:ss`
+* **Wasserstand** in cm
+* **Status** Angabe "qualitätsgesichert" oder "nicht qualitätsgesichert"
+
+Zeichensatz ist ISO-8859-1, Spaltentrenner ist Semikolon.
+
+</dct:description>
+        <dct:publisher rdf:resource="http://141.91.184.90/organization/llur"/>
+        <dct:spatial>
+          <dct:Location rdf:nodeID="Nd869d4b6e9764341a8777d9c943ce549">
+            <locn:geometry rdf:datatype="https://www.iana.org/assignments/media-types/application/vnd.geo+json">{"type": "Point", "coordinates": [8.940064939, 54.547327331]}</locn:geometry>
+            <locn:geometry rdf:datatype="http://www.opengis.net/ont/geosparql#wktLiteral">POINT (8.9401 54.5473)</locn:geometry>
+          </dct:Location>
+        </dct:spatial>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/ENVI"/>
+        <dcat:distribution rdf:resource="http://llur.landsh.de/pegel/114437/Wasserstand.csv"/>
+        <dcat:keyword>Wasserstand</dcat:keyword>
+        <dcat:keyword>Online-Pegel</dcat:keyword>
+        <dct:identifier>http://llur.landsh.de/pegel/114437/Wasserstand</dct:identifier>
+        <dct:title>Wasserstand Pegel Arlau-Schleuse BP - Arlau</dct:title>
+        <dcat:keyword>Arlau</dcat:keyword>
+        <dct:license rdf:resource="http://dcat-ap.de/def/licenses/dl-by-de/2.0"/>
+        <dcat:keyword>in Betrieb</dcat:keyword>
+        <dcat:keyword>Pegel</dcat:keyword>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-01-17T00:00:00</dct:modified>
+        <dcatde:licenseAttributionByText>LLUR-SH</dcatde:licenseAttributionByText>
+        <dct:temporal>
+          <dct:PeriodOfTime rdf:nodeID="N12c1687db1e149eabe09948684d599f1">
+            <schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-10-15T00:00:00</schema:startDate>
+            <schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-01-17T00:00:00</schema:endDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-11T00:00:00</dct:issued>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+      </dcat:Dataset>
+    </dcat:dataset>
+       <dcat:dataset>
+      <dcat:Dataset rdf:about="https://opendata.schleswig-holstein.de/dataset/15909dac-9544-4e28-88a5-a7c8e3f21263">
+        <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-by/4.0"/>
+        <dcat:keyword>Historisches Adressbuch</dcat:keyword>
+        <dcat:distribution rdf:resource="https://opendata-stage.schleswig-holstein.de/dataset/940acb9a-e828-43bc-9de0-68dc9a16a76c/resource/97d04f9b-7272-474f-bbeb-0251d7ed7986"/>
+        <dct:identifier>940acb9a-e828-43bc-9de0-68dc9a16a76c</dct:identifier>
+        <dct:temporal>
+          <dct:PeriodOfTime rdf:nodeID="N1bd26fd15b254e17a253c3ec31b444a6">
+            <schema:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1934-01-01T00:00:00</schema:startDate>
+            <schema:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1934-12-31T00:00:00</schema:endDate>
+          </dct:PeriodOfTime>
+        </dct:temporal>
+        <dcat:keyword>Adressbuch</dcat:keyword>
+        <dct:description>Daten des *Adreßbuch der Stadt Kiel und Umgegend 1934*, erfasst von Freiwilligen mit dem Daten-Erfassungs-Sytem (DES) des Vereins für Computergenealogie.&#13;
+&#13;
+[Beschreibung der Quelle und des Projekts](https://wiki-de.genealogy.net/Kiel/Adressbuch_1934)&#13;
+&#13;
+[Online-Suche in den Daten](https://des.genealogy.net/kiel1934/search)&#13;
+&#13;
+Folgende Spalten sind in der Datei enthalten:&#13;
+&#13;
+- `page` - Bezeichnung der Seite, auf der sich der Eintrag befindet&#13;
+- `lastname` - Nachname &#13;
+- `firstname` - Vorname(n)&#13;
+- `Beruf o. ä.` - Beruf der erfassten Person eingetragen, wie er in der Vorlage genannt ist. Eine Negativaussage (z.B. "ohne Beruf") wird ebenfalls in diesem Feld notiert. Auch Angaben wie "Rentner", "Invalide" oder ähnliches werden im Berufsfeld erfasst, da die Person aufgrund dieses Status ihr Einkommen bezieht. &#13;
+- `Adresse` - Adresse, wie sie im Adressbuch eingetragen ist&#13;
+- `Ortsname` - Name des Wohnplatzes&#13;
+- `Ortskennung` - URI des Wohnplatzes im [Geschichtlichen Ortsverzeichnis](https://gov.genealogy.net)&#13;
+- `Firmenname` - Name der Firma, sofern es sich um einen Firmeneintrag handelt&#13;
+- `Familienstand` - Familienstand wie *Witwe*, *Frau*, *Fräulein*&#13;
+- `Vorname Bezugsperson` - z.B. Name des verstorbenen Ehemannes im Fall einer Witwe&#13;
+- `Beruf Bezugsperson` - z.B. Beruf des verstorbenen Ehemannes im Fall einer Witwe&#13;
+- `Eigentümer` - Zum Teil ist im Adressbuch vermerkt, dass es sich bei der Person um den Eigentümer des Hauses handelt. Dann steht in diesem Feld der Wert `Eigentümer`&#13;
+- `Verwalter` - Zum Teil ist im Adressbuch vermerkt, dass es sich bei der Person um den Verwalter des Hauses handelt. Dann steht in diesem Feld der Wert `Verwalter`&#13;
+- `wohnt nicht im Haus` - Ist im Adressbuch zu erkennen, dass die genannte Person nicht in an der Adresse wohnt (sondern z.B. der Inhaber des hier befindlichen Geschäfts ist), so ist in dieser Spalte ein `ja` eingetragen.&#13;
+- `Funktionsträger` - Ist in diesem Feld ein `ja` eingetragen, hat die Person an dem genannten Ort ein Amt (z.B. Gutsvorsteher) inne, wohnt aber nicht unbedingt dort.&#13;
+- `id` - eindeutige Kennung des Eintrags im DES. Durch Vorstellen von `https://des.genealogy.net/search/show/` gelangt man zur Webseite des Eintrags.&#13;
+</dct:description>
+        <dcatde:licenseAttributionByText>CompGen - Verein für Computergenealogie</dcatde:licenseAttributionByText>
+        <dct:publisher rdf:resource="https://opendata.schleswig-holstein.de/organization/ee4df032-ec5f-4726-b7ad-a2c708fb53ec"/>
+        <dct:title>Adressbuch Kiel 1934</dct:title>
+        <dct:spatial rdf:resource="http://dcat-ap.de/def/politicalGeocoding/districtKey/01002"/>
+        <dcatde:contributorID rdf:resource="http://dcat-ap.de/def/contributors/schleswigHolstein"/>
+        <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/DEU"/>
+        <dcat:keyword>Coding da Vinci 2021</dcat:keyword>
+        <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/EDUC"/>
+        <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-04-16T10:18:01.505418</dct:modified>
+        <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-03-15T00:00:00</dct:issued>
+      </dcat:Dataset>
+    </dcat:dataset>
+
+  </dcat:Catalog>
+
+  <dcat:Distribution rdf:about="https://opendata-stage.schleswig-holstein.de/dataset/940acb9a-e828-43bc-9de0-68dc9a16a76c/resource/97d04f9b-7272-474f-bbeb-0251d7ed7986">
+    <dct:title>kiel1934.csv</dct:title>
+    <dcat:accessURL rdf:resource="https://opendatarepo.lsh.uni-kiel.de/data/compgen/kiel1934.csv"/>
+    <dcatde:licenseAttributionByText>CompGen - Verein für Computergenealogie</dcatde:licenseAttributionByText>
+    <dcat:mediaType>text/csv</dcat:mediaType>
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+    <dct:license rdf:resource="http://dcat-ap.de/def/licenses/cc-by/4.0"/>
+  </dcat:Distribution>
+   <dcat:Distribution rdf:about="http://llur.landsh.de/pegel/114437/Wasserstand.csv">
+    <dct:license rdf:resource="http://dcat-ap.de/def/licenses/dl-by-de/2.0"/>
+    <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/CSV"/>
+    <dcatde:licenseAttributionByText>LLUR-SH</dcatde:licenseAttributionByText>
+    <dcat:accessURL rdf:resource="https://www.umweltdaten.landsh.de/nuis/wafis/pegel/hydro/hy_wst_download.php?sta_no_s=114437&amp;thema=W&amp;von=15.10.1998&amp;bis=17.01.2022&amp;sdatkat=null"/>
+    <dct:title>114437.csv</dct:title>
+  </dcat:Distribution>
+ </rdf:RDF>
